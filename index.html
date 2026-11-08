@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuaderno Digital de Matemáticas - 1º ESO (IES El Mayorazgo)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mayorazgo: {
+                            purple: '#6B21A8',
+                            purpleLight: '#F3E8FF',
+                            purpleDark: '#581C87',
+                            green: '#15803D',
+                            greenLight: '#DCFCE7',
+                            gold: '#D97706',
+                            goldLight: '#FEF3C7',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .tab-btn.active {
+            border-bottom: 3px solid #6B21A8;
+            color: #6B21A8;
+            font-weight: 700;
+            background-color: #F3E8FF;
+        }
+        @media print {
+            nav, header, button, .no-print { display: none !important; }
+            .tab-content { display: block !important; }
+            body { background-color: white !important; }
+        }
+    </style>
+</head>
+<body class="bg-slate-100 min-h-screen text-slate-800 flex flex-col">
+
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-mayorazgo-purpleDark via-mayorazgo-purple to-purple-900 text-white shadow-lg">
+        <div class="max-w-6xl mx-auto px-4 py-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-4 text-center md:text-left">
+                    <div class="w-16 h-16 bg-white text-mayorazgo-purple rounded-full flex items-center justify-center font-bold text-2xl shadow-inner border-2 border-mayorazgo-gold">
+                        <i class="fa-solid font-bold text-3xl text-mayorazgo-purple">1º</i>
+                    </div>
+                    <div>
+                        <span class="inline-block px-2 py-0.5 bg-mayorazgo-gold text-slate-900 font-extrabold text-xs rounded mb-1">
+                            IES EL MAYORAZGO
+                        </span>
+                        <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight">Matemáticas 1º ESO</h1>
+                        <p class="text-purple-200 text-sm">SA1: De los naturales a los enteros (Programa Adaptado)</p>
+                    </div>
+                </div>
+                <div class="bg-white/10 p-3 rounded-lg backdrop-blur-sm border border-white/20 text-right min-w-[220px]">
+                    <div class="text-xs text-purple-200">Nombre del Alumno/a:</div>
+                    <input type="text" id="studentName" class="bg-white text-slate-800 px-3 py-1.5 rounded text-sm w-full mt-1 font-semibold focus:ring-2 focus:ring-mayorazgo-gold outline-none">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Tab Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-30">
+        <div class="max-w-6xl mx-auto px-2 flex overflow-x-auto text-sm border-b border-slate-200">
+            <button type="button" onclick="switchTab('mod1')" id="tab-mod1" class="tab-btn active px-4 py-3 font-medium whitespace-nowrap flex items-center gap-2 transition-colors">
+                <i class="fa-solid fa-list-ol text-mayorazgo-gold"></i> 1. Sistema Decimal
+            </button>
+            <button type="button" onclick="switchTab('mod2')" id="tab-mod2" class="tab-btn px-4 py-3 font-medium text-slate-600 hover:text-mayorazgo-purple whitespace-nowrap flex items-center gap-2 transition-colors">
+                <i class="fa-solid fa-calculator text-mayorazgo-gold"></i> 2. Jerarquía de Operaciones
+            </button>
+            <button type="button" onclick="switchTab('mod3')" id="tab-mod3" class="tab-btn px-4 py-3 font-medium text-slate-600 hover:text-mayorazgo-purple whitespace-nowrap flex items-center gap-2 transition-colors">
+                <i class="fa-solid fa-temperature-arrow-down text-mayorazgo-gold"></i> 3. Enteros en la Vida Real
+            </button>
+            <button type="button" onclick="switchTab('mod4')" id="tab-mod4" class="tab-btn px-4 py-3 font-medium text-slate-600 hover:text-mayorazgo-purple whitespace-nowrap flex items-center gap-2 transition-colors">
+                <i class="fa-solid fa-arrow-down-up-across-line text-mayorazgo-gold"></i> 4. Recta Numérica y Orden
+            </button>
+            <button type="button" onclick="switchTab('modSummary')" id="tab-modSummary" class="tab-btn px-4 py-3 font-medium text-slate-600 hover:text-mayorazgo-purple whitespace-nowrap flex items-center gap-2 transition-colors ml-auto bg-mayorazgo-goldLight text-mayorazgo-gold font-bold">
+                <i class="fa-solid fa-award"></i> Resumen y Entrega
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-4 py-6 flex-grow w-full">
+
+        <!-- MÓDULO 1: SISTEMA DECIMAL -->
+        <section id="mod1" class="tab-content block space-y-6">
+            <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-mayorazgo-purple">
+                <h2 class="text-xl font-bold text-mayorazgo-purple flex items-center gap-2">
+                    <i class="fa-solid fa-bullseye"></i> Módulo 1: Sistema de Numeración y Valor Posicional
+                </h2>
+                <p class="text-slate-600 text-sm mt-1">Criterios de Evaluación vinculados: <strong>CE 1.1, CE 6.1</strong></p>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow-sm space-y-4">
+                <h3 class="font-bold text-slate-800 text-base">Ejercicio 1.1: Valor Posicional</h3>
+                <p class="text-sm text-slate-600">Indica el valor en unidades de la cifra destacada en el número 2<span class="text-mayorazgo-purple font-bold underline">3</span>9.627:</p>
+                <input type="number" id="m1_1a" class="w-full md:w-64 p-2 border rounded outline-none focus:ring-2 focus:ring-mayorazgo-purple">
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow-sm space-y-4">
+                <h3 class="font-bold text-slate-800 text-base">Ejercicio 1.2: Descomposición por Órdenes de Unidad</h3>
+                <p class="text-sm text-slate-600">Descompón el número 405.820 indicando las unidades pertenecientes a cada orden:</p>
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-3 text-sm">
+                    <div class="p-2 bg-slate-50 rounded border">
+                        <label class="block text-xs text-slate-600 font-bold">CM:</label>
+                        <input type="number" id="m1_2_cm" class="w-full p-1 border rounded mt-1">
+                    </div>
+                    <div class="p-2 bg-slate-50 rounded border">
+                        <label class="block text-xs text-slate-600 font-bold">DM:</label>
+                        <input type="number" id="m1_2_dm" class="w-full p-1 border rounded mt-1">
+                    </div>
+                    <div class="p-2 bg-slate-50 rounded border">
+                        <label class="block text-xs text-slate-600 font-bold">UM:</label>
+                        <input type="number" id="m1_2_um" class="w-full p-1 border rounded mt-1">
+                    </div>
+                    <div class="p-2 bg-slate-50 rounded border">
+                        <label class="block text-xs text-slate-600 font-bold">C:</label>
+                        <input type="number" id="m1_2_c" class="w-full p-1 border rounded mt-1">
+                    </div>
+                    <div class="p-2 bg-slate-50 rounded border">
+                        <label class="block text-xs text-slate-600 font-bold">D:</label>
+                        <input type="number" id="m1_2_d" class="w-full p-1 border rounded mt-1">
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex justify-between items-center pt-2">
+                <button type="button" id="btn_mod1" onclick="checkMod1()" class="px-6 py-3 bg-mayorazgo-purple text-white font-bold rounded-lg shadow hover:bg-mayorazgo-purpleDark transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-check-circle"></i> Validar Módulo 1
+                </button>
+                <button type="button" onclick="switchTab('mod2')" class="px-5 py-2.5 bg-slate-200 text-slate-700 font-semibold rounded-lg hover:bg-slate-300 transition-colors">
+                    Siguiente Módulo <i class="fa-solid fa-arrow-right ml-1"></i>
+                </button>
+            </div>
+            <div id="m1_feedback" class="hidden p-4 rounded-lg font-bold text-center"></div>
+        </section>
+
+        <!-- MÓDULO 2: JERARQUÍA DE OPERACIONES -->
+        <section id="mod2" class="tab-content hidden space-y-6">
+            <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-mayorazgo-green">
+                <h2 class="text-xl font-bold text-mayorazgo-green flex items-center gap-2">
+                    <i class="fa-solid fa-calculator"></i> Módulo 2: Operaciones Combinadas Sencillas
+                </h2>
+                <p class="text-slate-600 text-sm mt-1">Criterios de Evaluación vinculados: <strong>CE 2.2</strong></p>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow-sm space-y-4">
+                <h3 class="font-bold text-slate-800 text-base">Ejercicio 2.1: Cálculo con Jerarquía</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-3 bg-slate-50 rounded border">
+                        <label class="block text-sm font-semibold">a) 15 + 5 · 4 - 12 =</label>
+                        <input type="number" id="m2_a" class="w-full p-2 mt-1 border rounded">
+                    </div>
+                    <div class="p-3 bg-slate-50 rounded border">
+                        <label class="block text-sm font-semibold">b) 30 - 3 · (8 - 2) =</label>
+                        <input type="number" id="m2_b" class="w-full p-2 mt-1 border rounded">
+                    </div>
+                    <div class="p-3 bg-slate-50 rounded border">
+                        <label class="block text-sm font-semibold">c) 40 : (12 - 4) + 6 =</label>
+                        <input type="number" id="m2_c" class="w-full p-2 mt-1 border rounded">
+                    </div>
+                    <div class="p-3 bg-slate-50 rounded border">
+                        <label class="block text-sm font-semibold">d) 8 · 5 - 24 : 3 =</label>
+                        <input type="number" id="m2_d" class="w-full p-2 mt-1 border rounded">
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex justify-between items-center pt-2">
+                <button type="button" id="btn_mod2" onclick="checkMod2()" class="px-6 py-3 bg-mayorazgo-green text-white font-bold rounded-lg shadow hover:bg-green-800 transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-check-circle"></i> Validar Módulo 2
+                </button>
+                <button type="button" onclick="switchTab('mod3')" class="px-5 py-2.5 bg-slate-200 text-slate-700 font-semibold rounded-lg hover:bg-slate-300 transition-colors">
+                    Siguiente Módulo <i class="fa-solid fa-arrow-right ml-1"></i>
+                </button>
+            </div>
+            <div id="m2_feedback" class="hidden p-4 rounded-lg font-bold text-center"></div>
+        </section>
+
+        <!-- MÓDULO 3: ENTEROS EN LA VIDA REAL -->
+        <section id="mod3" class="tab-content hidden space-y-6">
+            <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-mayorazgo-gold">
+                <h2 class="text-xl font-bold text-amber-700 flex items-center gap-2">
+                    <i class="fa-solid fa-temperature-arrow-down"></i> Módulo 3: Números Enteros en Contextos Cotidianos
+                </h2>
+                <p class="text-slate-600 text-sm mt-1">Criterios de Evaluación vinculados: <strong>CE 1.1, CE 2.1, CE 2.3</strong></p>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow-sm space-y-4">
+                <h3 class="font-bold text-slate-800 text-base">Ejercicio 3.1: Registro Térmico en Las Cañadas del Teide</h3>
+                <div class="p-4 bg-slate-50 rounded border space-y-3">
+                    <p class="text-sm text-slate-700">
+                        A las 07:00 en Las Cañadas del Teide se registra una temperatura de <strong>-3 ºC</strong>. Al mediodía la temperatura sube <strong>11 ºC</strong>, y durante la noche desciende <strong>9 ºC</strong>.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-600 mb-1">a) Temperatura al mediodía (ºC):</label>
+                            <input type="number" id="m3_temp_mediodia" class="w-full p-2 border rounded text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-600 mb-1">b) Temperatura final en la noche (ºC):</label>
+                            <input type="number" id="m3_temp_noche" class="w-full p-2 border rounded text-sm">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow-sm space-y-4">
+                <h3 class="font-bold text-slate-800 text-base">Ejercicio 3.2: El Ascensor del Centro Comercial</h3>
+                <div class="p-4 bg-slate-50 rounded border space-y-3">
+                    <p class="text-sm text-slate-700">
+                        Un ascensor está en la planta <strong>-2</strong> (sótano). Sube <strong>5 plantas</strong>, baja <strong>4 plantas</strong> y finalmente sube <strong>3 plantas</strong>.
+                    </p>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-600 mb-1">Planta final en la que se detiene el ascensor:</label>
+                        <input type="number" id="m3_ascensor" class="w-full md:w-64 p-2 border rounded text-sm">
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex justify-between items-center pt-2">
+                <button type="button" id="btn_mod3" onclick="checkMod3()" class="px-6 py-3 bg-mayorazgo-gold text-white font-bold rounded-lg shadow hover:bg-amber-700 transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-check-circle"></i> Validar Módulo 3
+                </button>
+                <button type="button" onclick="switchTab('mod4')" class="px-5 py-2.5 bg-slate-200 text-slate-700 font-semibold rounded-lg hover:bg-slate-300 transition-colors">
+                    Siguiente Módulo <i class="fa-solid fa-arrow-right ml-1"></i>
+                </button>
+            </div>
+            <div id="m3_feedback" class="hidden p-4 rounded-lg font-bold text-center"></div>
+        </section>
+
+        <!-- MÓDULO 4: ORDENACIÓN DE ENTEROS -->
+        <section id="mod4" class="tab-content hidden space-y-6">
+            <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-mayorazgo-purple">
+                <h2 class="text-xl font-bold text-mayorazgo-purple flex items-center gap-2">
+                    <i class="fa-solid fa-arrow-down-up-across-line"></i> Módulo 4: Recta Numérica y Ordenación de Enteros
+                </h2>
+                <p class="text-slate-600 text-sm mt-1">Criterios de Evaluación vinculados: <strong>CE 2.1, CE 6.1</strong></p>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow-sm space-y-4">
+                <h3 class="font-bold text-slate-800 text-base">Ejercicio 4.1: Orden de Números Naturales de MENOR a MAYOR</h3>
+                <p class="text-sm text-slate-600">Ordena los siguientes números naturales separados por comas:</p>
+                <p class="text-sm font-bold text-mayorazgo-purple mb-2">125.040, 125.400, 120.540, 125.004</p>
+                <input type="text" id="m4_ord_nat" class="w-full p-2 border rounded text-sm outline-none focus:ring-2 focus:ring-mayorazgo-purple">
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow-sm space-y-4">
+                <h3 class="font-bold text-slate-800 text-base">Ejercicio 4.2: Orden de Números Enteros de MENOR a MAYOR</h3>
+                <p class="text-sm text-slate-600">Ordena las siguientes temperaturas en la recta numérica conservando sus signos y separadas por comas:</p>
+                <p class="text-sm font-bold text-mayorazgo-purple mb-2">-4 ºC, +5 ºC, -8 ºC, 0 ºC, +2 ºC, -1 ºC</p>
+                <input type="text" id="m4_ord_ent" class="w-full p-2 border rounded text-sm outline-none focus:ring-2 focus:ring-mayorazgo-purple">
+            </div>
+
+            <div class="flex justify-between items-center pt-2">
+                <button type="button" id="btn_mod4" onclick="checkMod4()" class="px-6 py-3 bg-mayorazgo-purple text-white font-bold rounded-lg shadow hover:bg-mayorazgo-purpleDark transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-check-circle"></i> Validar Módulo 4
+                </button>
+                <button type="button" onclick="switchTab('modSummary')" class="px-5 py-2.5 bg-mayorazgo-gold text-slate-900 font-bold rounded-lg hover:bg-amber-400 transition-colors">
+                    Ir al Resumen Final <i class="fa-solid fa-award ml-1"></i>
+                </button>
+            </div>
+            <div id="m4_feedback" class="hidden p-4 rounded-lg font-bold text-center"></div>
+        </section>
+
+        <!-- RESUMEN Y INFORME CUALITATIVO -->
+        <section id="modSummary" class="tab-content hidden space-y-6">
+            <div class="bg-white p-6 rounded-xl shadow border-t-4 border-mayorazgo-gold text-center space-y-3">
+                <h2 class="text-2xl font-bold text-mayorazgo-purple">Informe Oficial de Evaluación Criterial</h2>
+                <p class="text-sm text-slate-600">Obtén la calificación cualitativa desglosada por Criterios de Evaluación y Módulos evaluados.</p>
+                <button type="button" onclick="calculateGlobalScore()" class="px-8 py-3 bg-mayorazgo-purple text-white font-bold text-lg rounded-xl shadow hover:bg-mayorazgo-purpleDark transition-all">
+                    Generar Calificaciones Cualitativas
+                </button>
+            </div>
+
+            <div id="scoreDashboard" class="hidden space-y-6">
+                <!-- Calificación Cualitativa Global -->
+                <div class="bg-white p-6 rounded-xl shadow text-center border border-mayorazgo-purpleLight">
+                    <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Calificación Global SA1</span>
+                    <div id="finalScoreGrade" class="text-3xl font-black text-mayorazgo-purple my-2">-</div>
+                </div>
+
+                <!-- Tabla de Criterios y Módulos Evaluados -->
+                <div class="bg-white p-6 rounded-xl shadow border space-y-4">
+                    <h3 class="font-bold text-lg border-b pb-2 text-mayorazgo-purpleDark">Desglose Cualitativo por Criterio de Evaluación</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-sm border-collapse">
+                            <thead>
+                                <tr class="bg-mayorazgo-purple text-white text-xs uppercase">
+                                    <th class="p-3 border w-1/2">Criterio de Evaluación</th>
+                                    <th class="p-3 border text-center w-1/4">Módulo/s Evaluados</th>
+                                    <th class="p-3 border text-center w-1/4">Calificación Cualitativa</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ceTableBody">
+                                <!-- Contenido inyectado dinámicamente por JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800 text-white p-6 rounded-xl shadow flex items-center justify-between no-print">
+                    <div>
+                        <h4 class="font-bold text-lg text-mayorazgo-gold">Guardar o Entregar</h4>
+                        <p class="text-xs text-slate-300">Imprime este informe oficial o guárdalo en formato PDF.</p>
+                    </div>
+                    <button type="button" onclick="window.print()" class="px-5 py-2.5 bg-mayorazgo-gold text-slate-900 font-bold rounded-lg hover:bg-amber-400 transition-colors">
+                        <i class="fa-solid fa-print"></i> Imprimir / Guardar PDF
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        const scores = { m1: null, m2: null, m3: null, m4: null };
+
+        function switchTab(id) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            document.getElementById(id).classList.remove('hidden');
+            document.getElementById('tab-' + id).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function lockFields(containerId) {
+            const container = document.getElementById(containerId);
+            const inputs = container.querySelectorAll('input');
+            inputs.forEach(el => el.disabled = true);
+        }
+
+        function getQualitativeGrade(score) {
+            if (score < 5) return 'Insuficiente (' + score.toFixed(1) + ')';
+            if (score < 6) return 'Suficiente (' + score.toFixed(1) + ')';
+            if (score < 7) return 'Bien (' + score.toFixed(1) + ')';
+            if (score < 9) return 'Notable (' + score.toFixed(1) + ')';
+            return 'Sobresaliente (' + score.toFixed(1) + ')';
+        }
+
+        function checkMod1() {
+            let q1a = parseInt(document.getElementById('m1_1a').value) || 0;
+
+            let cm = parseInt(document.getElementById('m1_2_cm').value);
+            let dm = parseInt(document.getElementById('m1_2_dm').value);
+            let um = parseInt(document.getElementById('m1_2_um').value);
+            let c_val = parseInt(document.getElementById('m1_2_c').value);
+            let d = parseInt(document.getElementById('m1_2_d').value);
+
+            let c = 0;
+            if (q1a === 30000) c++;
+            if (cm === 4 && dm === 0 && um === 5 && c_val === 8 && d === 2) c++;
+
+            scores.m1 = (c / 2) * 10;
+            let fb = document.getElementById('m1_feedback');
+            fb.classList.remove('hidden');
+            fb.className = "p-4 rounded-lg font-bold text-center " + (scores.m1 >= 5 ? "bg-green-100 text-green-800" : "bg-amber-100 text-amber-800");
+            fb.innerText = `Módulo 1 Validado. Calificación: ${getQualitativeGrade(scores.m1)}.`;
+            
+            lockFields('mod1');
+        }
+
+        function checkMod2() {
+            let a = parseInt(document.getElementById('m2_a').value);
+            let b = parseInt(document.getElementById('m2_b').value);
+            let c_val = parseInt(document.getElementById('m2_c').value);
+            let d = parseInt(document.getElementById('m2_d').value);
+
+            let c = 0;
+            if (a === 23) c++;
+            if (b === 12) c++;
+            if (c_val === 11) c++;
+            if (d === 32) c++;
+
+            scores.m2 = (c / 4) * 10;
+            let fb = document.getElementById('m2_feedback');
+            fb.classList.remove('hidden');
+            fb.className = "p-4 rounded-lg font-bold text-center " + (scores.m2 >= 5 ? "bg-green-100 text-green-800" : "bg-amber-100 text-amber-800");
+            fb.innerText = `Módulo 2 Validado. Calificación: ${getQualitativeGrade(scores.m2)}.`;
+
+            lockFields('mod2');
+        }
+
+        function checkMod3() {
+            let t_med = parseInt(document.getElementById('m3_temp_mediodia').value);
+            let t_noc = parseInt(document.getElementById('m3_temp_noche').value);
+            let asc = parseInt(document.getElementById('m3_ascensor').value);
+
+            let c = 0;
+            if (t_med === 8) c++;
+            if (t_noc === -1) c++;
+            if (asc === 2) c++;
+
+            scores.m3 = (c / 3) * 10;
+            let fb = document.getElementById('m3_feedback');
+            fb.classList.remove('hidden');
+            fb.className = "p-4 rounded-lg font-bold text-center " + (scores.m3 >= 5 ? "bg-green-100 text-green-800" : "bg-amber-100 text-amber-800");
+            fb.innerText = `Módulo 3 Validado. Calificación: ${getQualitativeGrade(scores.m3)}.`;
+
+            lockFields('mod3');
+        }
+
+        function checkMod4() {
+            let nat_val = document.getElementById('m4_ord_nat').value.replace(/\s+/g, '');
+            let ent_val = document.getElementById('m4_ord_ent').value.replace(/\s+/g, '');
+
+            let ok_nat = (nat_val === '120540,125004,125040,125400');
+            let ok_ent = (ent_val === '-8,-4,-1,0,2,5' || ent_val === '-8,-4,-1,0,+2,+5');
+
+            let c = 0;
+            if (ok_nat) c++;
+            if (ok_ent) c++;
+
+            scores.m4 = (c / 2) * 10;
+            let fb = document.getElementById('m4_feedback');
+            fb.classList.remove('hidden');
+            fb.className = "p-4 rounded-lg font-bold text-center " + (scores.m4 >= 5 ? "bg-green-100 text-green-800" : "bg-amber-100 text-amber-800");
+            fb.innerText = `Módulo 4 Validado. Calificación: ${getQualitativeGrade(scores.m4)}.`;
+
+            lockFields('mod4');
+        }
+
+        function calculateGlobalScore() {
+            if (scores.m1 === null) checkMod1();
+            if (scores.m2 === null) checkMod2();
+            if (scores.m3 === null) checkMod3();
+            if (scores.m4 === null) checkMod4();
+
+            // Mapeo real de Criterios del Ciclo
+            let ce11 = (scores.m1 + scores.m3) / 2;
+            let ce21 = (scores.m3 + scores.m4) / 2;
+            let ce22 = scores.m2;
+            let ce23 = scores.m3;
+            let ce61 = (scores.m1 + scores.m4) / 2;
+
+            let finalAvg = (ce11 + ce21 + ce22 + ce23 + ce61) / 5;
+
+            document.getElementById('scoreDashboard').classList.remove('hidden');
+            document.getElementById('finalScoreGrade').innerText = getQualitativeGrade(finalAvg);
+
+            let tbody = document.getElementById('ceTableBody');
+            tbody.innerHTML = `
+                <tr class="border-b bg-white">
+                    <td class="p-3 border font-semibold">CE 1.1 - Interpretar problemas de la vida cotidiana discriminando datos</td>
+                    <td class="p-3 border text-center font-bold text-mayorazgo-purple">Módulos 1 y 3</td>
+                    <td class="p-3 border text-center font-bold text-mayorazgo-purple">${getQualitativeGrade(ce11)}</td>
+                </tr>
+                <tr class="border-b bg-slate-50">
+                    <td class="p-3 border font-semibold">CE 2.1 - Elegir y aplicar estrategias para resolver problemas</td>
+                    <td class="p-3 border text-center font-bold text-mayorazgo-purple">Módulos 3 y 4</td>
+                    <td class="p-3 border text-center font-bold text-mayorazgo-purple">${getQualitativeGrade(ce21)}</td>
+                </tr>
+                <tr class="border-b bg-white">
+                    <td class="p-3 border font-semibold">CE 2.2 - Operaciones pertinentes y jerarquía de cálculo</td>
+                    <td class="p-3 border text-center font-bold text-mayorazgo-purple">Módulo 2</td>
+                    <td class="p-3 border text-center font-bold text-mayorazgo-purple">${getQualitativeGrade(ce22)}</td>
+                </tr>
+                <tr class="border-b bg-slate-50">
+                    <td class="p-3 border font-semibold">CE 2.3 - Coherencia y validez de las soluciones en el contexto</td>
+                    <td class="p-3 border text-center font-bold text-mayorazgo-purple">Módulo 3</td>
+                    <td class="p-3 border text-center font-bold text-mayorazgo-purple">${getQualitativeGrade(ce23)}</td>
+                </tr>
+                <tr class="border-b bg-white">
+                    <td class="p-3 border font-semibold">CE 6.1 - Lenguaje matemático en la vida cotidiana y ordenación</td>
+                    <td class="p-3 border text-center font-bold text-mayorazgo-purple">Módulos 1 y 4</td>
+                    <td class="p-3 border text-center font-bold text-mayorazgo-purple">${getQualitativeGrade(ce61)}</td>
+                </tr>
+            `;
+        }
+    </script>
+</body>
+</html>
